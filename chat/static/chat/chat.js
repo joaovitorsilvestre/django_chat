@@ -25,13 +25,13 @@ function refresh_users(data){
         obj.addEventListener('click', function(){
             var divs = document.getElementsByClassName('box_user_unique');
             for (i=0; i<divs.length; i++ ){
-                divs[i].style.backgroundColor = 'cadetblue'
+                divs[i].style.backgroundColor = '#425361'
             }
-            this.style.backgroundColor = 'blue'
+            this.style.backgroundColor = '#666C9C'
             selected_user = this.name
+            window.setTimeout('refresh_chat()', '20')
         });
         document.getElementById('box_users').appendChild(obj);
-        console.log(obj);
     }
 }
 
@@ -87,7 +87,8 @@ function display_chat(msgs_lista){
             obj.appendChild(t);
             document.getElementById('box_messages').appendChild(obj)      
         }            
-    }   
+    }
+    window.setTimeout('refresh_chat()', '2000')
 }
 
 

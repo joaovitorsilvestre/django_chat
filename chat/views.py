@@ -86,7 +86,8 @@ def Get_message(request):
 
             msgs_enviar.reverse()
             return HttpResponse(json.dumps(msgs_enviar), content_type='application/json')
-
-        return HttpResponse(json.dumps('nenhuma msg encontrada'))
+        else:
+            iniciar_conversa = ['Iniciando nova conversa']
+            return HttpResponse(json.dumps(iniciar_conversa), content_type='application/json')
 
     return HttpResponse('fail em pegar as mensagen')

@@ -1,14 +1,25 @@
+#box_header{
+    width: 50%;
+    height: 6%;
+    background-color: #131719
+}
+
+label{
+    color: darkgray;
+    font-size: 20px;
+    font-family: "Arial", Times, serif;    
+}
+
 #box_chat {
     width:50%;
-    height:100%;
-    background-color: bisque;
+    height:80%;
 }
 
 #box_users {
     width: 30%;
     height: 100%;
     float: left;
-    background-color: azure;
+    background-color: #2E3742;
 }
 
 .box_user_unique {
@@ -18,21 +29,23 @@
     float: left;
     margin-left: 5%;
     margin-top: 5%;
-    background-color: cadetblue;
+    background-color: #425361;
+    font-family: "Arial", Times, serif;
 }
 
 #box_chat_text{
     width: 70%;
     height: 100%;
     float: right;
+    background-color: #22262B;   
 }
 
 #box_messages{
     width: 90%;
-    height: 85%;
+    height: 90%;
     margin-left: 5%;
     margin-top: 5%;
-    background-color: wheat
+    background-color: #262E36
 }
 
 .msg_unique_user {
@@ -41,7 +54,9 @@
     height: 5%;
     margin-top: 2%;
     display: table;
-    background-color: cadetblue;
+    padding: 2%;
+    background-color: #7B91BD;
+    font-family: "Arial", Times, serif;
 }
 
 .msg_unique_other{
@@ -50,7 +65,9 @@
     height: 5%;
     margin-top: 2%;
     display: table;
-    background-color: cornflowerblue;   
+    padding: 2%;
+    background-color: #666C9C; 
+    font-family: "Arial", Times, serif;  
 }
 
 #box_send_message{
@@ -58,7 +75,7 @@
     height: 6%;
     min-height: 5%;
     float: left;
-    margin-left: 5%;    
+    margin-left: 5%;     
 }
 
 
@@ -67,6 +84,7 @@
     height: 100%;
     float: left;
     resize: none;
+    font-family: "Arial", Times, serif;
 }
 
 #text_send {
@@ -74,5 +92,5 @@
     height: 100%;
     float: right; 
     border: none;
-    background-color: cornflowerblue;
+    background-color: #7B91BD;
 }
