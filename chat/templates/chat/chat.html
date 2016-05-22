@@ -1,0 +1,39 @@
+{% load staticfiles %}
+
+<html>
+    <head>
+        <link rel="stylesheet" href="../../static/chat/chat.css" />
+        <script type="text/javascript" src="../../static/chat/jquery-2.2.3.min.js"></script>
+        <script type="text/javascript" src="../../static/chat/chat.js"></script>
+    </head>
+    <body onload="get_users_on()">
+        <input id='usuario' type="button" value={{usuario}} />
+        
+        <div id="box_chat">
+            <div id="box_users">
+                <div class="box_user_unique" onclick="user_selected(this)">
+                </div>
+            </div>
+            
+            <div id="box_chat_text">
+                <div id="box_messages">
+                    <div class="msg_unique_user">
+                        Bem vindo ao Chat.
+                    </div>
+                    <div class="msg_unique_other">
+                        Outro Usuario está online.
+                    </div>
+                    
+                </div>
+                <div id="box_send_message">
+                    <form id='form_message'>
+                        <textarea id="text_input"></textarea>
+                        <input id="text_send" type="submit" value="S">
+                    </form>
+                </div>
+            </div>
+            
+        </div>
+    </body>
+
+</html>
