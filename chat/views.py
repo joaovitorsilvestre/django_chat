@@ -35,6 +35,7 @@ def Send_message(request):
             for name in files:
                 if name == '{0}_{1}.txt'.format(de,para) or name == '{0}_{1}.txt'.format(para,de):
                     file_found = name
+                    break
                 else:
                     file_found = None
 
@@ -43,15 +44,17 @@ def Send_message(request):
             path = os.path.join(basepath, '..', 'conversations' , file_found)
 
             with open(path ,'a+') as conversation:
-                conversation.write(de + '--' + message + '\n')
+                conversation.write(de + ' : ' + message + '\n')
                 return HttpResponse('sucsess')
+
         else:
             basepath = os.path.dirname(__file__)
             path = os.path.join(basepath, '..', 'conversations' , '{0}_{1}.txt'.format(de,para))
 
             with open(path ,'a+') as conversation:
-                conversation.write(de + '--' + message + '\n')
+                conversation.write(de + ' : ' + message + '\n')
                 return HttpResponse('sucsess')
+
 
     return HttpResponse('fail em enviar a menssagem')
 
@@ -65,6 +68,7 @@ def Get_message(request):
             for name in files:
                 if name == '{0}_{1}.txt'.format(de,para) or name == '{0}_{1}.txt'.format(para,de):
                     file_found = name
+                    break
                 else:
                     file_found = None
 
@@ -76,18 +80,18 @@ def Get_message(request):
                 msgs = get_conversation.read().splitlines()
                 msgs_enviar = []
 
-                num_de_msgs_get = 5
+                num_de_msgs_get = 9
                 if len(msgs) > num_de_msgs_get:
                     for mensagem in range( len(msgs)-1, len(msgs)-num_de_msgs_get -1, -1):
                         msgs_enviar.append(msgs[mensagem])
                 else:
-                    for mensagem in range( len(msgs)-1, 0, -1):
+                    for mensagem in range( len(msgs)-1, -1, -1):
                         msgs_enviar.append(msgs[mensagem])
 
             msgs_enviar.reverse()
             return HttpResponse(json.dumps(msgs_enviar), content_type='application/json')
         else:
-            iniciar_conversa = ['Iniciando nova conversa']
+            iniciar_conversa = ['Inicie uma nova conversa']
             return HttpResponse(json.dumps(iniciar_conversa), content_type='application/json')
 
     return HttpResponse('fail em pegar as mensagen')

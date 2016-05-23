@@ -1,5 +1,9 @@
+body{
+    margin: 0;
+}
+
 #box_header{
-    width: 50%;
+    width: 100%;
     height: 6%;
     background-color: #131719
 }
@@ -7,12 +11,12 @@
 label{
     color: darkgray;
     font-size: 20px;
-    font-family: "Arial", Times, serif;    
+    font-family: "Arial", Times, serif;
 }
 
 #box_chat {
-    width:50%;
-    height:80%;
+    width:100%;
+    height:94%;
 }
 
 #box_users {
@@ -37,7 +41,7 @@ label{
     width: 70%;
     height: 100%;
     float: right;
-    background-color: #22262B;   
+    background-color: #22262B;
 }
 
 #box_messages{
@@ -66,8 +70,8 @@ label{
     margin-top: 2%;
     display: table;
     padding: 2%;
-    background-color: #666C9C; 
-    font-family: "Arial", Times, serif;  
+    background-color: #666C9C;
+    font-family: "Arial", Times, serif;
 }
 
 #box_send_message{
@@ -75,7 +79,7 @@ label{
     height: 6%;
     min-height: 5%;
     float: left;
-    margin-left: 5%;     
+    margin-left: 5%;
 }
 
 
@@ -90,7 +94,7 @@ label{
 #text_send {
     width: 10%;
     height: 100%;
-    float: right; 
+    float: right;
     border: none;
     background-color: #7B91BD;
 }
