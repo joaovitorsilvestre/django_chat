@@ -44,7 +44,7 @@ def Send_message(request):
             path = os.path.join(basepath, '..', 'conversations' , file_found)
 
             with open(path ,'a+') as conversation:
-                conversation.write(de + ' : ' + message + '\n')
+                conversation.write(de + ': ' + message + '\n')
                 return HttpResponse('sucsess')
 
         else:
@@ -52,7 +52,7 @@ def Send_message(request):
             path = os.path.join(basepath, '..', 'conversations' , '{0}_{1}.txt'.format(de,para))
 
             with open(path ,'a+') as conversation:
-                conversation.write(de + ' : ' + message + '\n')
+                conversation.write(de + ': ' + message + '\n')
                 return HttpResponse('sucsess')
 
 
@@ -80,7 +80,7 @@ def Get_message(request):
                 msgs = get_conversation.read().splitlines()
                 msgs_enviar = []
 
-                num_de_msgs_get = 9
+                num_de_msgs_get = 10
                 if len(msgs) > num_de_msgs_get:
                     for mensagem in range( len(msgs)-1, len(msgs)-num_de_msgs_get -1, -1):
                         msgs_enviar.append(msgs[mensagem])
