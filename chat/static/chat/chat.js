@@ -1,8 +1,11 @@
 function get_users_on(){
+    console.log(url_chat);
+    console.log(usuario);
+    
     $.ajax({
         type: 'GET',
         dataType: 'json',
-        url:'/chat/users_on',
+        url: url_chat.concat('users_on'),
         success: function(data){
             console.log(data)
             refresh_users(data)
@@ -40,7 +43,7 @@ $(document).on('submit','#form_message', function(e){
         e.preventDefault();
         $.ajax({
             type: 'POST',
-            url:'/chat/send_message',
+            url: url_chat.concat('send_message'),
             data: {
                 de: usuario,
                 para: selected_user,
@@ -55,7 +58,7 @@ $(document).on('submit','#form_message', function(e){
 function refresh_chat(){
     $.ajax({
         type: 'POST',
-        url: '/chat/get_message',
+        url: url_chat.concat('get_message'),
         data: {
             de: usuario,
             para: selected_user

@@ -2,13 +2,15 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from accounts.models import Usuario
 from django.views.decorators.csrf import csrf_exempt
+from django.conf import settings
 import json, os
 
 
 def Chat(request):
     usuario = request.user
+    URL_CHAT = getattr(settings, "URL_CHAT", "/chat/") ## ultimo valor é para caso não tenha sido definida pelo user, então é o default
 
-    return render(request, 'chat/chat.html', {'usuario': usuario})
+    return render(request, 'chat/chat.html', {'usuario': usuario, 'URL_CHAT': URL_CHAT})
 
 
 
