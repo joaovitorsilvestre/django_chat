@@ -16,14 +16,25 @@ def Chat(request):
 
 # funções abaixo são para retornar json para pedidos feitos pelo ajax
 def Users_on(request):
-    users_on = []
-    for u in Usuario.objects.all():
-        if u.online == True:
+
+    from django.contrib.auth import get_user_model
+    user_model = get_user_model()
+
+    try:
+        users_on = []
+        for u in user_model.objects.all():
+            if u.online == True:
+                if u.username != request.user.username:
+                    users_on.append(u.username)
+
+    except ValueError:
+        print('Modelo de user não cadastrado, todos os users encontrados apareceram online.', ValueError)
+        users_on = []
+        for u in user_model.objects.all():
             if u.username != request.user.username:
                 users_on.append(u.username)
 
     json_data = json.dumps(users_on)
-
     return HttpResponse(json_data)
 
 @csrf_exempt
