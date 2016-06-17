@@ -29,6 +29,7 @@ label{
 .box_user_unique {
     width: 20%;
     height: 70%;
+    border: none;
     border-radius: 5px;
     float: left;
     margin-left: 2%;

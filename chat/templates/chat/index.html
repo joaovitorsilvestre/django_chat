@@ -1,0 +1,44 @@
+{% load staticfiles %}
+
+<html ng-app="index">
+	<head>
+		<meta name="viewport" content="width=device-width, height=device-height,  initial-scale=1.0, user-scalable=no, user-scalable=0"/>
+		<title>Chat</title>
+		<link rel="stylesheet" media="screen and (min-device-width: 800px)" type="text/css" href="{% static 'chat/css/index800.css' %}">
+		<link rel="stylesheet" media="screen and (min-device-width: 300px) and (max-device-width: 800px)" type="text/css" href="{% static 'chat/css/index300.css' %}">
+
+		<script type="text/javascript" src="{% static 'chat/lib/angular.min.js' %}"></script>
+		<script type="text/javascript" src="{% static 'chat/js/apps/indexApp.js' %}"></script>
+		<script type="text/javascript" src="{% static 'chat/js/controllers/indexCtrl.js' %}"></script>
+		<script type="text/javascript" src="{% static 'chat/js/services/chatApi.js' %}"></script>
+	</head>
+	<body ng-controller="indexCtrl">
+        <div id="box_header">
+            <label>Bem vindo {{usuario}}</label>
+        </div>
+
+        <div id="box_chat">
+            <div id="box_users">
+				<span ng-repeat="user in users.on">
+		            <div class="box_user_unique" ng-click="select_user(user)">{$ user $}</div>
+		        </span>
+
+            </div>
+
+            <div id="box_chat_text">
+                <div id="box_messages">
+                    <span ng-repeat="message in messages track by $index">
+                    	<div ng-class="class_message(message)">{$ message $}</div>
+                    </span>
+                </div>
+                <div id="box_send_message">
+                    <form id='form_message' ng-submit="send_message(text_input)">
+                        <textarea id="text_input" ng-model="text_input"></textarea>
+                        <input id="text_send" type="submit" value="S">
+                    </form>
+                </div>
+            </div>
+
+        </div>
+	</body>
+</html>

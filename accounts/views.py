@@ -3,7 +3,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse, HttpResponseRedirect
 from django.utils.crypto import get_random_string
 from django.contrib.auth.decorators import login_required
-from django_chat import settings
+from django.conf import settings
 from accounts.models import Usuario
 
 def Login(request):
@@ -26,10 +26,8 @@ def Login(request):
             return render(request, 'accounts/login.html', {'fail':True, 'redirect_to':next})
 
     return render(request, 'accounts/login.html', {'redirect_to':next})
-
+    
 def Logout(request):
-    request.user.online = False
-    request.user.save()
     logout(request)
     return HttpResponseRedirect('/home')
 
