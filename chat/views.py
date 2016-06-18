@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 import json, os
 from accounts.models import Usuario
 
@@ -16,7 +16,7 @@ def Users_on(request):
         if user != request.user:
             users_on_found['on'].append(user.username)
 
-    return HttpResponse(json.dumps(users_on_found))
+    return JsonResponse(users_on_found)
 
 def Messages_get(request, user):
     de = request.user.username
